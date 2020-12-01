@@ -7,8 +7,11 @@
 # MIT License (MIT)
 # https://github.com/reitzig/sdkman-for-fish
 
+set -q XDG_DATA_HOME; or set XDG_DATA_HOME ~/.local/share
+set sdkman_data $XDG_DATA_HOME/sdkman-for-fish
+
 set __fish_sdkman_init "$HOME/.sdkman/bin/sdkman-init.sh"
-set __fish_sdkman_noexport_init "$HOME/.local/share/fisher/github.com/reitzig/sdkman-for-fish/sdkman-noexport-init.sh"
+set __fish_sdkman_noexport_init "$sdkman_data/sdkman-noexport-init.sh"
 
 # Guard: SDKMAN! needs to be installed
 if not test -f "$__fish_sdkman_init"
